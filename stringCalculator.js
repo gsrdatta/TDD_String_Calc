@@ -2,7 +2,8 @@ function add(numbers) {
   //Check for empty Strings
   if (numbers === "") return 0;
   let sum = 0;
-  numbers.split(",").map((num) => {
+  //Added regex to check newline \n or comma
+  numbers.split(/[\n,]/).map((num) => {
     sum += parseInt(num);
   });
   return sum;
