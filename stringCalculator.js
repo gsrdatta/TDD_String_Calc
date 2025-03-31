@@ -1,7 +1,11 @@
 function add(numbers) {
-    //Check for empty Strings
+  //Check for empty Strings
   if (numbers === "") return 0;
-  return parseInt(numbers);
+  let sum = 0;
+  numbers.split(",").map((num) => {
+    sum += parseInt(num);
+  });
+  return sum;
 }
 
 module.exports = add;
