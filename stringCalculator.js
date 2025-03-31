@@ -3,8 +3,15 @@ function add(numbers) {
   if (numbers === "") return 0;
   let sum = 0;
   //Added regex to check newline \n or comma
-  numbers.split(/[\n,]/).map((num) => {
-    sum += parseInt(num);
+  let regx = /[\n,]/;
+  if (numbers.startsWith("//")) {
+    const parts = numbers.split("\n");
+    regx = new RegExp("\\" + parts[0].slice(2));
+    numbers = parts[1];
+  }
+  console.log(numbers.split(regx));
+  numbers.split(regx).map((num) => {
+    sum += parseInt(num, 10);
   });
   return sum;
 }
